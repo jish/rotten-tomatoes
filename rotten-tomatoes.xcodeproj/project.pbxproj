@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0366B0CA1A81E04A008DE286 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0366B0C91A81E04A008DE286 /* MovieTableViewCell.swift */; };
 		03F447FF1A8045A20029AEB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F447FE1A8045A20029AEB2 /* AppDelegate.swift */; };
-		03F448011A8045A20029AEB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F448001A8045A20029AEB2 /* ViewController.swift */; };
 		03F448041A8045A20029AEB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F448021A8045A20029AEB2 /* Main.storyboard */; };
 		03F448061A8045A20029AEB2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F448051A8045A20029AEB2 /* Images.xcassets */; };
 		03F448091A8045A20029AEB2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F448071A8045A20029AEB2 /* LaunchScreen.xib */; };
 		03F448151A8045A20029AEB2 /* rotten_tomatoesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F448141A8045A20029AEB2 /* rotten_tomatoesTests.swift */; };
+		03F4481F1A8048BA0029AEB2 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F4481E1A8048BA0029AEB2 /* MoviesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +27,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0366B0C91A81E04A008DE286 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		03F447F91A8045A20029AEB2 /* rotten-tomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rotten-tomatoes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F447FD1A8045A20029AEB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03F447FE1A8045A20029AEB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		03F448001A8045A20029AEB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		03F448031A8045A20029AEB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03F448051A8045A20029AEB2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		03F448081A8045A20029AEB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		03F4480E1A8045A20029AEB2 /* rotten-tomatoesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rotten-tomatoesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F448131A8045A20029AEB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03F448141A8045A20029AEB2 /* rotten_tomatoesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rotten_tomatoesTests.swift; sourceTree = "<group>"; };
+		03F4481E1A8048BA0029AEB2 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				03F447FE1A8045A20029AEB2 /* AppDelegate.swift */,
-				03F448001A8045A20029AEB2 /* ViewController.swift */,
+				03F4481E1A8048BA0029AEB2 /* MoviesViewController.swift */,
 				03F448021A8045A20029AEB2 /* Main.storyboard */,
+				0366B0C91A81E04A008DE286 /* MovieTableViewCell.swift */,
 				03F448051A8045A20029AEB2 /* Images.xcassets */,
 				03F448071A8045A20029AEB2 /* LaunchScreen.xib */,
 				03F447FC1A8045A20029AEB2 /* Supporting Files */,
@@ -212,8 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03F448011A8045A20029AEB2 /* ViewController.swift in Sources */,
 				03F447FF1A8045A20029AEB2 /* AppDelegate.swift in Sources */,
+				03F4481F1A8048BA0029AEB2 /* MoviesViewController.swift in Sources */,
+				0366B0CA1A81E04A008DE286 /* MovieTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +409,7 @@
 				03F4481A1A8045A20029AEB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03F4481B1A8045A20029AEB2 /* Build configuration list for PBXNativeTarget "rotten-tomatoesTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				03F4481D1A8045A20029AEB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
