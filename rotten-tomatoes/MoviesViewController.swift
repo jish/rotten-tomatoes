@@ -12,11 +12,20 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tableView: UITableView!
 
+    var movies: [Movie] = []
+    
+    struct Movie {
+        var title: String
+        var description: String
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
+
+        fetchData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,14 +34,37 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return movies.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("movie-cell") as MovieTableViewCell
-        cell.titleLabel.text = "Title \(indexPath.row)"
-        cell.descriptionLabel.text = "Kingsman: The Secret Service tells the story of a super-secret spy organization that recruits an unrefined but promising street kid into the agency's ultra-competitive training program just as a global threat emerges from a twisted tech genius."
+        let movie = movies[indexPath.row]
+
+        cell.titleLabel.text = movie.title
+        cell.descriptionLabel.text = movie.description
+
         return cell
+    }
+
+    func fetchData() -> Void {
+        let apiKey = ""
+        let url = NSURL(string: "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=\(apiKey)")!
+        let request = NSURLRequest(URL: url)
+
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) in
+            var dict = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
+            var array: Array = dict["movies"] as NSArray
+
+            self.movies = array.map({ (m) -> Movie in
+                return Movie(
+                    title: m["title"] as String,
+                    description: m["synopsis"] as String
+                )
+            })
+
+            self.tableView.reloadData()
+        }
     }
     
     /*
