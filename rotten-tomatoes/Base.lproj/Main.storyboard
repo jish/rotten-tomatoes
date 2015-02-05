@@ -38,7 +38,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fsl-lR-8yk">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fsl-lR-8yk">
                                                     <rect key="frame" x="8" y="8" width="73" height="77"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -46,7 +46,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="7tA-Xg-7CN" id="Rje-QF-K3j"/>
-                                            <outlet property="posterView" destination="fBF-BI-k6P" id="WU2-IX-q7R"/>
+                                            <outlet property="posterView" destination="fsl-lR-8yk" id="3fd-2H-TW0"/>
                                             <outlet property="titleLabel" destination="YS1-s5-ewz" id="ReY-jN-WqC"/>
                                         </connections>
                                     </tableViewCell>

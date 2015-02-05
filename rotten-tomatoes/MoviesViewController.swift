@@ -17,6 +17,15 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     struct Movie {
         var title: String
         var description: String
+        var thumbnailUrl: NSURL
+
+        func simpleDescription() -> String {
+            return "simple description"
+        }
+
+        func toString() -> String {
+            return "to string"
+        }
     }
     
     override func viewDidLoad() {
@@ -43,6 +52,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         cell.titleLabel.text = movie.title
         cell.descriptionLabel.text = movie.description
+        cell.posterView.setImageWithURL(movie.thumbnailUrl)
 
         return cell
     }
@@ -53,13 +63,20 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let request = NSURLRequest(URL: url)
 
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) in
+            
+            if error != nil {
+                println(response)
+                println(error)
+            }
+            
             var dict = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
             var array: Array = dict["movies"] as NSArray
-
+            
             self.movies = array.map({ (m) -> Movie in
                 return Movie(
                     title: m["title"] as String,
-                    description: m["synopsis"] as String
+                    description: m["synopsis"] as String,
+                    thumbnailUrl: NSURL(string: m.valueForKeyPath("posters.thumbnail") as String)!
                 )
             })
 
