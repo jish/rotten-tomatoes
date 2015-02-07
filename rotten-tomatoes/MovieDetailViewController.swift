@@ -11,6 +11,7 @@ import UIKit
 class MovieDetailViewController: UIViewController {
 
     var movie: Movie!
+    var placeholderImage: UIImage!
 
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -25,7 +26,19 @@ class MovieDetailViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         titleLabel.text = movie.title
         descriptionLabel.text = movie.description
-        posterView.setImageWithURL(movie.originalUrl)
+
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        let request = NSURLRequest(URL: movie.originalUrl)
+        func success(request: NSURLRequest!, response: NSURLResponse!, image: UIImage!) -> Void {
+            println("Success!")
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.posterView.image = image
+        }
+        func failure(request: NSURLRequest!, response: NSURLResponse!, error: NSError!) -> Void {
+            println("Failure :(")
+        }
+        posterView.setImageWithURLRequest(request, placeholderImage: placeholderImage, success: success, failure: failure)
     }
     
     override func didReceiveMemoryWarning() {

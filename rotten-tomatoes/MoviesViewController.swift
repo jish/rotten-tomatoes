@@ -48,8 +48,11 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let url = NSURL(string: "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=\(apiKey)")!
         let request = NSURLRequest(URL: url)
 
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) in
-            
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+
             if error != nil {
                 println(response)
                 println(error)
@@ -72,9 +75,11 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let controller = segue.destinationViewController as MovieDetailViewController
-        
+
         if let indexPath = tableView.indexPathForSelectedRow() {
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as MovieTableViewCell
             controller.movie = movies[indexPath.row]
+            controller.placeholderImage = cell.posterView.image
         } else {
             println("prepareForSegue: Count not find indexPathForSelectedRow")
         }
