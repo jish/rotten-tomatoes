@@ -14,20 +14,6 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     var movies: [Movie] = []
     
-    struct Movie {
-        var title: String
-        var description: String
-        var thumbnailUrl: NSURL
-
-        func simpleDescription() -> String {
-            return "simple description"
-        }
-
-        func toString() -> String {
-            return "to string"
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,7 +31,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
-    
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("movie-cell") as MovieTableViewCell
         let movie = movies[indexPath.row]
@@ -83,15 +69,15 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.tableView.reloadData()
         }
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let controller = segue.destinationViewController as MovieDetailViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow() {
+            controller.movie = movies[indexPath.row]
+        } else {
+            println("prepareForSegue: Count not find indexPathForSelectedRow")
+        }
     }
-    */
 
 }
