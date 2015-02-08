@@ -14,21 +14,26 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var banner: UIView!
 
     var movies: [Movie] = []
-    
+    var refreshControl: UIRefreshControl!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "onRefresh:", forControlEvents: .ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+
         tableView.delegate = self
         tableView.dataSource = self
 
-        fetchData()
+        fetchData(true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
@@ -44,15 +49,20 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
 
-    func fetchData() -> Void {
+    func fetchData(showLoadingSpinner: Bool) -> Void {
         let apiKey = ""
         let url = NSURL(string: "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=\(apiKey)")!
         let request = NSURLRequest(URL: url)
 
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        banner.hidden = true
+        
+        if showLoadingSpinner {
+         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        }
 
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) in
             MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.refreshControl.endRefreshing()
 
             if error != nil {
                 self.displayError(error.localizedDescription)
@@ -68,7 +78,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
 
             var array: Array = dict["movies"] as NSArray
-            
+
             self.movies = array.map({ (m) -> Movie in
                 return Movie(
                     title: m["title"] as String,
@@ -84,6 +94,10 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func displayError(message: String) {
         println(message)
         banner.hidden = false
+    }
+
+    func onRefresh(sender: AnyObject) {
+        fetchData(false)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
