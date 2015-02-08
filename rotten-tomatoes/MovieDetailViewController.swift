@@ -14,12 +14,14 @@ class MovieDetailViewController: UIViewController {
     var placeholderImage: UIImage!
 
     @IBOutlet weak var posterView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        scrollView.contentSize = CGSize(width: 320, height: 1000)
         // Do any additional setup after loading the view.
     }
 
