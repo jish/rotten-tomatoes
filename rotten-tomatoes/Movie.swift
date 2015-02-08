@@ -9,10 +9,12 @@
 import Foundation
 
 struct Movie {
-    var title: String
-    var description: String
-    var thumbnailUrl: NSURL
-    
+    let audienceScore: Int
+    let criticScore: Int
+    let title: String
+    let description: String
+    let thumbnailUrl: NSURL
+
     var originalUrl: NSURL {
         let urlString = thumbnailUrl.absoluteString!
         return NSURL(string: urlString.stringByReplacingOccurrencesOfString("tmb", withString: "ori", options: NSStringCompareOptions.LiteralSearch, range: nil))!

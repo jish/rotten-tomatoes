@@ -17,6 +17,8 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var audienceScoreLabel: UILabel!
+    @IBOutlet weak var criticScoreLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,11 @@ class MovieDetailViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         titleLabel.text = movie.title
         descriptionLabel.text = movie.description
+        audienceScoreLabel.text = "\(movie.audienceScore)%"
+        criticScoreLabel.text = "\(movie.criticScore)%"
+
+        titleLabel.sizeToFit()
+        descriptionLabel.sizeToFit()
 
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         

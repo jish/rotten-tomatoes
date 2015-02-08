@@ -81,6 +81,8 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
             self.movies = array.map({ (m) -> Movie in
                 return Movie(
+                    audienceScore: m.valueForKeyPath("ratings.audience_score") as Int,
+                    criticScore: m.valueForKeyPath("ratings.critics_score") as Int,
                     title: m["title"] as String,
                     description: m["synopsis"] as String,
                     thumbnailUrl: NSURL(string: m.valueForKeyPath("posters.thumbnail") as String)!
