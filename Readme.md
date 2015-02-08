@@ -28,7 +28,7 @@ About 10 hours
 
 #### License
 
-MIT
+[MIT][License]
 
 [1]: http://cocoapods.org/
 [2]: http://afnetworking.com/
