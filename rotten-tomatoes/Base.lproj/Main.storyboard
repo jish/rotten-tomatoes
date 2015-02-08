@@ -24,7 +24,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kingsman: The Secret Service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YS1-s5-ewz">
-                                                    <rect key="frame" x="89" y="8" width="198" height="21"/>
+                                                    <rect key="frame" x="89" y="8" width="152" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -42,9 +42,17 @@
                                                     <rect key="frame" x="8" y="8" width="73" height="77"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="73%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6wg-jv-omQ">
+                                                    <rect key="frame" x="236" y="8" width="43" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="audienceScoreLabel" destination="6wg-jv-omQ" id="bJB-pd-pS4"/>
                                             <outlet property="descriptionLabel" destination="7tA-Xg-7CN" id="Rje-QF-K3j"/>
                                             <outlet property="posterView" destination="fsl-lR-8yk" id="3fd-2H-TW0"/>
                                             <outlet property="titleLabel" destination="YS1-s5-ewz" id="ReY-jN-WqC"/>

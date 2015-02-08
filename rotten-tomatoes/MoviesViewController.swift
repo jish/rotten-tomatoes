@@ -42,6 +42,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCellWithIdentifier("movie-cell") as MovieTableViewCell
         let movie = movies[indexPath.row]
 
+        cell.audienceScoreLabel.text = "\(movie.audienceScore)%"
         cell.titleLabel.text = movie.title
         cell.descriptionLabel.text = movie.description
         cell.posterView.setImageWithURL(movie.thumbnailUrl)
