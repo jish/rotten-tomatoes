@@ -16,7 +16,7 @@ About 10 hours
 
 #### GIF Walkthrough
 
-TODO
+![Rotten Tomatoes GIF Walkthrough](rotten-tomatoes.gif))
 
 #### Open source software used:
 
