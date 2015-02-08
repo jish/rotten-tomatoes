@@ -90,6 +90,8 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 )
             })
 
+            self.movies = sorted(self.movies) { $0.audienceScore > $1.audienceScore }
+
             self.tableView.reloadData()
         }
     }
