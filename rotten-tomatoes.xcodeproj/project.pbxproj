@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0326AA291A86FFF800FB90A6 /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 0326AA281A86FFF800FB90A6 /* warning.png */; };
 		0340321E1A84732100A6D1E3 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340321D1A84732100A6D1E3 /* MovieDetailViewController.swift */; };
 		034032201A84796600A6D1E3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340321F1A84796600A6D1E3 /* Movie.swift */; };
 		0366B0CA1A81E04A008DE286 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0366B0C91A81E04A008DE286 /* MovieTableViewCell.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		025644F2635B8B3124D59336 /* libPods-rotten-tomatoes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rotten-tomatoes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0326AA281A86FFF800FB90A6 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = warning.png; path = images/warning.png; sourceTree = SOURCE_ROOT; };
 		0340321D1A84732100A6D1E3 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		0340321F1A84796600A6D1E3 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		0366B0C91A81E04A008DE286 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0326AA251A86FC0000FB90A6 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				0326AA281A86FFF800FB90A6 /* warning.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		03F447F01A8045A20029AEB2 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 		03F447FB1A8045A20029AEB2 /* rotten-tomatoes */ = {
 			isa = PBXGroup;
 			children = (
+				0326AA251A86FC0000FB90A6 /* images */,
 				03F447FE1A8045A20029AEB2 /* AppDelegate.swift */,
 				03F4481E1A8048BA0029AEB2 /* MoviesViewController.swift */,
 				03F448021A8045A20029AEB2 /* Main.storyboard */,
@@ -229,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0326AA291A86FFF800FB90A6 /* warning.png in Resources */,
 				03F448041A8045A20029AEB2 /* Main.storyboard in Resources */,
 				03F448091A8045A20029AEB2 /* LaunchScreen.xib in Resources */,
 				03F448061A8045A20029AEB2 /* Images.xcassets in Resources */,

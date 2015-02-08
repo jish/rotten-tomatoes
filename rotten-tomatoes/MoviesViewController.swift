@@ -11,6 +11,7 @@ import UIKit
 class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var banner: UIView!
 
     var movies: [Movie] = []
     
@@ -49,16 +50,23 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let request = NSURLRequest(URL: url)
 
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        
+
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) in
             MBProgressHUD.hideHUDForView(self.view, animated: true)
 
             if error != nil {
-                println(response)
-                println(error)
+                self.displayError(error.localizedDescription)
+                return
             }
-            
+
             var dict = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
+
+            let httpResponse = response as NSHTTPURLResponse
+            if httpResponse.statusCode == 403 {
+                let message = dict["error"] as String
+                self.displayError("\(message). Plase provide a valid API key.")
+            }
+
             var array: Array = dict["movies"] as NSArray
             
             self.movies = array.map({ (m) -> Movie in
@@ -73,6 +81,11 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+    func displayError(message: String) {
+        println(message)
+        banner.hidden = false
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let controller = segue.destinationViewController as MovieDetailViewController
 
